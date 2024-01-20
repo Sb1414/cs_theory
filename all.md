@@ -141,3 +141,4 @@ Task task = Task.Factory.StartNew(() => Console.WriteLine("Hello Task!"));
 Task task = Task.Run(() => Console.WriteLine("Hello Task!"));
 ```
 Метод Task.Run() также в качестве параметра может принимать делегат Action - выполняемое действие и возвращает объект Task.
+
