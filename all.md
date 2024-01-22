@@ -255,7 +255,7 @@ LINQ включает в себя различные операторы запр
 4. Процессор компьютера выполняет родной машинный код.
 
 ## [Что такое ref и out ?](https://dev-station.ru/categories/csharp/cheatsheet/csharp-base-cheatsheet#3391)
-**ref** и **out** позволяют передавать в метод ссылки на объекты и для value type, и для reference type.
+**ref** и **out** позволяют передавать в метод ссылки на объекты и для [value type, и для reference type](types.md#чем-отличаются-value-от-reference-type--string---это-reference-или-value-).
 
 И **ref**, и **out** позволяют внутри метода использовать **new** и для **class**, и для **struct**.
 
