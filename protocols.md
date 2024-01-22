@@ -4,6 +4,7 @@
 
 + [Что такое порт ?](#что-такое-порт-)
 + [Что такое HTTP ?](#что-такое-http-)
++ [HttpClient](#httpclient-)
 + [Что такое HTTPS](#что-такое-https-)
 + [ Что такое HTML ?](#что-такое-html-)
 + [Что такое FTP ?](#что-такое-ftp-)
@@ -42,6 +43,52 @@ HyperText Transfer Protocol — «протокол передачи гиперт
 - Заголовки запроса (Request Headers) содержит больше информации о клиенте, такую как куки, браузер, язык.
 - Заголовки ответа (Response Headers) содержат информацию об ответе, например его местонахождение, или о сервере, предоставившем его.
 - Тело запроса (Body) содержат информацию о теле ресурса(JSON)
+
+## HttpClient
+**HttpClient** в C# - это класс из пространства имен System.Net.Http, предоставляющий удобный интерфейс для отправки HTTP-запросов и получения HTTP-ответов. HttpClient является частью стандартной библиотеки .NET и широко используется в приложениях для взаимодействия с веб-ресурсами, API и другими удаленными сервисами.
+
+Основные функции и возможности HttpClient включают:
+- Отправка HTTP-запросов: HttpClient позволяет отправлять различные типы HTTP-запросов, такие как GET, POST, PUT, DELETE и другие. Методы для отправки запросов имеют имена, соответствующие стандартным HTTP-методам (например, GetAsync, PostAsync, PutAsync, DeleteAsync).
+- Асинхронность: Все методы HttpClient предоставляют асинхронные версии для эффективного использования ресурсов и предотвращения блокировки потока во время выполнения HTTP-запросов. Например, метод GetAsync возвращает объект Task < HttpResponseMessage >.
+- Конфигурирование: HttpClient позволяет настраивать различные параметры запросов через свойства, такие как BaseAddress, Timeout, DefaultRequestHeaders и другие. Это обеспечивает гибкость и конфигурируемость при работе с удаленными ресурсами.
+- Обработка HTTP-ответов: HttpClient возвращает объекты HttpResponseMessage, представляющие HTTP-ответ от сервера. Эти объекты содержат информацию о статусе ответа, заголовках и теле ответа. Методы ReadAs* позволяют асинхронно считывать данные из тела ответа.
+- Управление состоянием: HttpClient создан для повторного использования. Повторное использование экземпляров HttpClient может улучшить производительность, так как он может эффективно управлять соединениями. Рекомендуется использовать один экземпляр HttpClient на приложение.
+
+*пример:*
+```
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main()
+    {
+        // Создание экземпляра HttpClient
+        using (HttpClient httpClient = new HttpClient())
+        {
+            // URL для GET-запроса
+            string apiUrl = "https://jsonplaceholder.typicode.com/posts/1";
+
+            // Отправка асинхронного GET-запроса
+            HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
+
+            // Проверка успешности ответа
+            if (response.IsSuccessStatusCode)
+            {
+                // Асинхронное чтение данных из тела ответа
+                string responseData = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Response: " + responseData);
+            }
+            else
+            {
+                Console.WriteLine("Error: " + response.StatusCode);
+            }
+        }
+    }
+}
+
+```
 
 
 ## Что такое HTTPS ?
