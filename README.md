@@ -70,6 +70,7 @@
 + [Что такое Array, List, HashSet, Dictionary ? Приведите примеры использования этих структур данных. Какая сложность операций с ними (поиск, вставка, удаление) ?](collections.md#что-такое-array-list-hashset-dictionary--приведите-примеры-использования-этих-структур-данных-какая-сложность-операций-с-ними-поиск-вставка-удаление-)
 + [Разница между System.Array.CopyTo() и System.Array.Clone() ?](collections.md#разница-между-systemarraycopyto-и-systemarrayclone-)
 + [Что делает оператор yield ? ](collections.md#что-делает-оператор-yield-)
++ [Как работает Dictionary, почему он работает быстрее чем List ?](collections.md#как-работает-dictionary-почему-он-работает-быстрее-чем-list-)
 
 ## Платформа .NET
 + [Что такое ASP.NET ?](net.md#что-такое-aspnet-)
